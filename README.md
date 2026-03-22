@@ -131,22 +131,3 @@ handover_df = runner.handover_df()  # demand, available, shortfall per week × c
 | `urgency_window` | 2 | Only dispatch proactively if breach is forecast within this many weeks |
 | `use_repair_batching` | `False` | `True` = `RepairBatcher` consolidates repair cars across senders |
 | `actual_transfers` | `None` | If set, these transfers are appended as-is each week (bypasses scheduling) |
-
----
-
-## Running notebooks
-
-```bash
-PYENV_VERSION=iom-migration-foresight-dssgx-24 jupyter nbconvert --to notebook --execute --inplace notebooks/<name>.ipynb
-```
-
-Always report actual output — never describe what a notebook *would* produce.
-
----
-
-## Key known issues
-
-- **Leipzig opened Jul 2024** — only 6 months of data before Jan 2025. `build_weekly_weights` falls back to uniform weekly weights for months with no history. Forecast underestimates Leipzig until it has a full year.
-- **`OVERFLOW_THRESHOLD = 0.9`** — the config comment says 85% but the actual value is 90%. Do not change without understanding the impact on overflow dispatch volumes.
-- **`repair_capacity_per_week` = simultaneous bays**, not weekly throughput. Munich 01's 60 bays means 60 cars can be in repair at once, not 60 per week.
-- **Actual forecast error Jan 2025**: actual handovers were ~28% higher than forecast (4,222 vs 3,152). High service rates were maintained because overflow compounds hold large stock buffers.
