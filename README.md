@@ -1,4 +1,4 @@
-# FINN Compound Network — Logistics Forecasting & Simulation
+# Compound Network — Logistics Forecasting & Simulation
 
 Predicts stock levels at each compound, schedules repair work, and optimises truck dispatches proactively — before overflow happens rather than reacting to it.
 
