@@ -1,0 +1,9 @@
+constraint_id,parameter,value,unit,description
+TC_001,daily_truck_cap,10,trucks/day,Max truck slots from logistics partner (Schäflein) per calendar day network-wide
+TC_002,truck_car_capacity,8,cars/truck,Standard double-deck car transporter capacity
+TC_003,base_fee_eur,45,EUR/truck,Fixed dispatch fee per truck (regardless of cars loaded or route distance)
+TC_004,per_km_rate_eur,0.55,EUR/km/truck,Variable rate per km (applies once per truck not per car — batching reduces per-car cost)
+TC_005,emergency_surcharge,2,multiplier,Cost multiplier for emergency dispatch (capacity overflow lead_time ≤ 1 day single-car run)
+TC_006,standard_lead_time_days,2,days,Minimum booking lead time for planned transfers
+TC_007,emergency_lead_time_days,1,days,Minimum lead time for emergency/overflow dispatch (incurs 2× surcharge)
+TC_008,max_route_trucks_per_day,3,trucks/route/day,Max trucks per specific origin→destination route per day
