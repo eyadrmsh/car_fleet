@@ -10,7 +10,7 @@ Predicts stock levels at each compound, schedules repair work, and optimises tru
 
 | Region | Compound | Capacity | Repair |
 |--------|----------|----------|--------|
-| South | Munich 01 | 1,200 | ✓ (60 bays) |
+| South | Munich 01 | 1,200 | ✓  |
 | South | Munich 02 | 350 | |
 | South | Stuttgart | 500 | ✓ |
 | South | Nuremberg | 300 | |
