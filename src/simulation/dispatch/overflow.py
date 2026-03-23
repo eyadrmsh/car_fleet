@@ -199,5 +199,5 @@ class RouteBatcher:
         n_cars_map = {cpd: info['surplus'] for cpd, info in urgent.items()}
         return _batch_dispatch(
             sorted_senders, n_cars_map, remaining_spare,
-            region_map, dist_matrix, reason='horizon_overflow',
+            region_map, dist_matrix, reason='overflow_dispatch',
         )

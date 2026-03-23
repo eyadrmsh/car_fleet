@@ -51,7 +51,7 @@ def get_initial_stock(compound_id: str,
     net_flow = build_net_flow(compound_id, car_events)
     past = net_flow[net_flow.index <= first_overflow_date]
     count_at_overflow = float(past.iloc[-1]) if not past.empty else 0.0
-    return max(0.0, 0.8 * (capacity - count_at_overflow))
+    return max(0.0, 0.93 * (capacity - count_at_overflow))
 
 
 def calibrate_initial_stock(car_events: pd.DataFrame,

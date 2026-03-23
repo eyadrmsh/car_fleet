@@ -58,6 +58,10 @@ class ForecastCache:
                  demand_df:    pd.DataFrame,
                  compounds_df: pd.DataFrame) -> None:
         ev_train = car_events[car_events['event_date'] < month_ts].copy()
+        if 'region' not in ev_train.columns:
+            ev_train = ev_train.merge(
+                compounds_df[['compound_id', 'region']], on='compound_id', how='left'
+            )
 
         self.repair_shares = compute_repair_share(ev_train)
         self.mean_days_map = (

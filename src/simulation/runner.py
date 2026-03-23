@@ -104,7 +104,8 @@ class HorizonSimulationRunner:
         if transfers is None:
             return None
         df = transfers.copy()
-        df['transfer_date'] = pd.to_datetime(df['transfer_date'])
+        df['transfer_date']  = pd.to_datetime(df['transfer_date'])
+        df['scheduled_date'] = pd.to_datetime(df['scheduled_date'])
         # Normalise compound column names (transfers.csv uses _id suffix)
         if 'from_compound_id' in df.columns:
             df = df.rename(columns={
@@ -126,7 +127,7 @@ class HorizonSimulationRunner:
         if self._actual_transfers is None:
             return []
         week_trf = self._actual_transfers[
-            self._actual_transfers['transfer_date'].between(week_monday, week_end)
+            self._actual_transfers['scheduled_date'].between(week_monday, week_end)
         ]
         if week_trf.empty:
             return []
